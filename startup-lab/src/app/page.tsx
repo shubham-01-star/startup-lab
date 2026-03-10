@@ -3,6 +3,8 @@ import { Project } from "@/entities/Project";
 import { Blog } from "@/entities/Blog";
 import HomeClient from "./HomeClient";
 
+export const dynamic = "force-dynamic";
+
 async function getData() {
   const db = await getDB();
   const projectRepo = db.getRepository(Project);

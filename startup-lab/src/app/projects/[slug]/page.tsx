@@ -5,6 +5,8 @@ import { Project } from "@/entities/Project";
 import { notFound } from "next/navigation";
 import { MoreThan, Not } from "typeorm";
 
+export const dynamic = "force-dynamic";
+
 async function getProject(slug: string) {
     const db = await getDB();
     return db.getRepository(Project).findOne({

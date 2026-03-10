@@ -2,6 +2,8 @@ import { getDB } from "@/lib/db";
 import { Blog } from "@/entities/Blog";
 import BlogClient from "./BlogClient";
 
+export const dynamic = "force-dynamic";
+
 async function getBlogs() {
     const db = await getDB();
     const blogs = await db.getRepository(Blog).find({

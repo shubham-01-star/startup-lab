@@ -5,6 +5,8 @@ import { Blog } from "@/entities/Blog";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Clock, Eye, Calendar } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 async function getBlog(slug: string) {
     const db = await getDB();
     const blog = await db.getRepository(Blog).findOne({

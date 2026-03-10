@@ -4,6 +4,8 @@ import { Project } from "@/entities/Project";
 import { Blog } from "@/entities/Blog";
 import AboutClient from "./AboutClient";
 
+export const dynamic = "force-dynamic";
+
 async function getAboutData() {
     const db = await getDB();
     const profileRepo = db.getRepository(Profile);
