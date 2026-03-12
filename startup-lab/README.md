@@ -43,6 +43,11 @@ cp .env.vps.example .env
 bash scripts/deploy.sh
 ```
 
+Database modes:
+
+- `DB_HOST=db`: startup-lab runs its own MySQL container
+- `DB_HOST=host.docker.internal`: startup-lab connects to an existing MySQL already running on the VPS host
+
 The deploy script:
 
 - builds and starts the Docker containers

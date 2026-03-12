@@ -22,9 +22,6 @@ services:
       dockerfile: Dockerfile
     container_name: startup-lab-app
     restart: unless-stopped
-    depends_on:
-      db:
-        condition: service_healthy
     environment:
       DB_HOST: ${DB_HOST:-db}
       DB_PORT: ${DB_PORT:-3306}
@@ -39,6 +36,8 @@ services:
       UPLOAD_DIR: ${UPLOAD_DIR:-./public/uploads}
       MAX_FILE_SIZE: ${MAX_FILE_SIZE:-5242880}
       NEXT_PUBLIC_CONTACT_EMAIL: ${NEXT_PUBLIC_CONTACT_EMAIL:-shubhamkumar990201@gmail.com}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     ports:
       - "${APP_PORT:-3002}:3000"
 

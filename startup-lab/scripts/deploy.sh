@@ -47,7 +47,8 @@ fi
 db_host="$(grep -E '^DB_HOST=' "$ENV_FILE" | tail -n 1 | cut -d '=' -f 2- | tr -d '"' | tr -d "'" | xargs || true)"
 
 if [[ "$db_host" == "localhost" || "$db_host" == "127.0.0.1" ]]; then
-  echo "For Docker Compose deploys, set DB_HOST=db in $ENV_FILE."
+  echo "Inside Docker, localhost points to the app container itself."
+  echo "Use DB_HOST=db for the bundled MySQL container, or DB_HOST=host.docker.internal for an existing MySQL on the VPS host."
   exit 1
 fi
 
@@ -82,8 +83,15 @@ wait_for_app() {
 }
 
 echo "Using environment file: $ENV_FILE"
-echo "Building and starting containers..."
-compose up -d --build
+if [[ "$db_host" == "db" ]]; then
+  echo "Bundled MySQL mode detected."
+  echo "Building and starting app + db containers..."
+  compose up -d --build
+else
+  echo "External MySQL mode detected (DB_HOST=$db_host)."
+  echo "Building and starting only the app container..."
+  compose up -d --build --no-deps app
+fi
 
 wait_for_app
 

@@ -1,0 +1,52 @@
+# Database
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_USERNAME=root
+DB_PASSWORD=reviewearn@123
+DB_DATABASE=startup_lab
+
+# NextAuth
+NEXTAUTH_URL=https://startup-lab.cloud
+NEXTAUTH_SECRET=super-secret-key-change-in-production-2026
+
+# Admin Seed
+ADMIN_EMAIL=admin@startup-lab.cloud
+ADMIN_PASSWORD=Admin@123
+ADMIN_NAME=Shubham
+
+# Upload
+UPLOAD_DIR=./public/uploads
+MAX_FILE_SIZE=5242880
+
+
+
+
+///new
+
+# Database
+DB_HOST=host.docker.internal
+DB_PORT=3306
+DB_USERNAME=root
+DB_PASSWORD=reviewearn@123
+DB_DATABASE=startup_lab
+
+
+# Docker / App Port
+APP_PORT=3002
+
+# NextAuth
+NEXTAUTH_URL=https://startup-lab.cloud
+NEXTAUTH_SECRET=AIzaSyDfzGx1W5-Gp22OAjT1n4b1Jchh0Z_hLhU
+
+# Admin Seed
+ADMIN_EMAIL=admin@startup-lab.cloud
+ADMIN_PASSWORD=Admin@123
+ADMIN_NAME=Shubham
+
+# Upload
+UPLOAD_DIR=./public/uploads
+MAX_FILE_SIZE=5242880
+
+# Optional
+GOOGLE_ANALYTICS_ID=
+NEXT_PUBLIC_CONTACT_EMAIL=support@startup-lab.cloud
