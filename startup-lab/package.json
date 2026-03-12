@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "seed": "npx ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/seed.ts"
+    "seed": "node scripts/run-ts.cjs scripts/seed.ts",
+    "sync:schema": "node scripts/run-ts.cjs scripts/sync-schema.ts"
   },
   "dependencies": {
     "@tiptap/extension-code-block-lowlight": "^3.20.0",

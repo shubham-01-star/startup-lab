@@ -8,9 +8,9 @@ import { Tag } from "../src/entities/Tag";
 import { Profile } from "../src/entities/Profile";
 import { SiteSettings } from "../src/entities/SiteSettings";
 import { ContactMessage } from "../src/entities/ContactMessage";
-import dotenv from "dotenv";
+import { loadScriptEnv } from "./load-env";
 
-dotenv.config({ path: ".env.local" });
+loadScriptEnv();
 
 const AppDataSource = new DataSource({
     type: "mysql",

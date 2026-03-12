@@ -34,6 +34,27 @@ Database:
 localhost:3307
 ```
 
+## VPS Deploy
+
+Use the VPS-specific env file and deploy script:
+
+```bash
+cp .env.vps.example .env
+bash scripts/deploy.sh
+```
+
+The deploy script:
+
+- builds and starts the Docker containers
+- syncs the database schema
+- runs the seed once on the first deployment
+
+If you need to rerun the seed manually later:
+
+```bash
+bash scripts/deploy.sh --force-seed
+```
+
 ## Environment Variables
 
 Start from `.env.example`. Docker Compose reads the same environment variables and defaults the host app port to `3002`.
